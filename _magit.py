@@ -24,8 +24,8 @@ grammar = Grammar('Grammaire magit')
 
 class ChepMagit(MappingRule):
     mapping = {
-	    'maguit': Key('c-c,m,s'),
-	    'commit': Key('c-c,c-c'),
+        'maguit': Key('c-c,m,s'),
+        'commit': Key('c-c,c-c'),
     }
 
 

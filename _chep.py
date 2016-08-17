@@ -25,16 +25,16 @@ grammar = Grammar('Grammaire chep')
 class ChepGeneral(MappingRule):
     mapping = {
         'dis <text>': Text('%(text)s'),
+        'nombre <n>': Text('%(n)d'),
         'dis camion': Text('pouet pouet'),
-        'minuscule <text>': Text('%(text)s'),
-        #'controlu <text>': Key('c-u') + Text('%(text)s'),
-        'controlu [<n>]': Key('c-u') + Text('%(n)d'),
-        '[<n>] fois': Key('c-u') + Text('%(n)d'),
+        'controlu <n>': Key('c-u') + Text('%(n)d'),
+        '<n> fois': Key('c-u') + Text('%(n)d'),
         'Alt tab': Key('a-tab'),
+        'loque': Key('alt:down,c-l,alt:up'),
     }
     extras = [
         Dictation('text'),
-        Integer("n", 1, 1000),
+        Integer("n", 0, 10000000),
     ]
     defaults = {
         'n': 1,
@@ -57,6 +57,7 @@ class ChepBuffers(MappingRule):
         'nouveau bureau': Key('c-c,c-d,a'),
         'supprime bureau': Key('c-c,c-d,d'),
         'echange bureau': Key('c-c,c-d,s'),
+        'bureau numero <n>': Key('a-colon') + Text('(virtual-desktops-goto ') + Text('%(n)e'),# + Key('enter'),
 
         'split horizontal': Key('c-x,3'),
         'split vertical': Key('c-x,2'),
@@ -67,15 +68,23 @@ class ChepBuffers(MappingRule):
         'change buffer': Key('c-x,b'),
         'place ancre [<n>]': Key('c-c,A,P') + Text('%(n)d'),
         'ancre [<n>]': Key('c-c,A') + Text('%(n)d'),
+
+        'buffer scratch': Key('a-colon') + Text('(switch-to-buffer "*scratch*")') + Key('enter'),
     }
     extras = [
         Dictation('text'),
-        Integer("n", 1, 1000),
+        IntegerRef("n", 0, 1000),
     ]
     defaults = {
         'n': 1,
     }
 
+class ChepAide(MappingRule):
+    mapping = {
+        'aide fonction': Key('c-h,f'),
+        'aide variable': Key('c-h,v'),
+        'aide touche': Key('c-h,k'),
+    }
 
 class ChepSymboles(MappingRule):
     mapping = {
@@ -110,10 +119,10 @@ class ChepSymboles(MappingRule):
         'inferieur': Key('langle'),
         'egal': Key('equal'),
         'exclamation': Key('exclamation'),
-	    'interrogation': Key('question'),
+        'interrogation': Key('question'),
         'paillpe': Key('bar'),
-	    'underscore': Key('underscore'),
-	    'et commercial': Key('ampersand'),
+        'underscore': Key('underscore'),
+        'et commercial': Key('ampersand'),
         'fleche': Key('minus,rangle'),
     }
 
@@ -134,6 +143,7 @@ class ChepActions(MappingRule):
         'cherche': Key('c-s'),
         'cherche arriere': Key('c-r'),
         'remplace': Key('a-percent'),
+        'ouvre url': Key('c-enter'),
     }
 
 class ChepDeplacements(MappingRule):
@@ -157,6 +167,8 @@ class ChepDeplacements(MappingRule):
 
         'debut buffer': Key('a-langle'),
         'fin buffer': Key('a-rangle'),
+
+        'ligne': Key('a-g,a-g'),
     }
 
 class ChepManipulation(MappingRule):
@@ -167,6 +179,8 @@ class ChepManipulation(MappingRule):
         'copie': Key('a-w'),
         'coupe': Key('c-w'),
         'colle': Key('c-y'),
+        'colle precedent': Key('a-y'),
+        'colle suivant': Key('ctrl:down,a-y,ctrl:up'),
         'kill': Key('c-k'),
 
         'efface mot': Key('a-backspace'),
@@ -219,7 +233,7 @@ class ChepLettres(MappingRule):
         'grand india': Key('I'),
         'grand juliette': Key('J'),
         'grand kilo': Key('K'),
-	    'grand lima': Key('L'),
+        'grand lima': Key('L'),
         'grand mike': Key('M'),
         'grand november': Key('N'),
         'grand oscar': Key('O'),
@@ -230,7 +244,7 @@ class ChepLettres(MappingRule):
         'grand tango': Key('T'),
         'grand uniform': Key('U'),
         'grand victor': Key('V'),
-	    'grand whiskey': Key('W'),
+        'grand whiskey': Key('W'),
         'grand xavier': Key('X'),
         'grand yvonne': Key('Y'),
         'grand zulu': Key('Z'),
@@ -244,6 +258,7 @@ grammar.add_rule(ChepActions())
 grammar.add_rule(ChepManipulation())
 grammar.add_rule(ChepTexte())
 grammar.add_rule(ChepLettres())
+grammar.add_rule(ChepAide())
 
 grammar.load()
 
