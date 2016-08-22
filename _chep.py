@@ -33,12 +33,11 @@ class ChepGeneral(MappingRule):
 
 class ChepBuffers(MappingRule):
 	mapping = {
-		'buffer droite': Key(u'c-c,right'),
-		'buffer gauche': Key(u'c-c,left'),
-		'buffer haut': Key(u'c-c,up'),
-		'buffer bas': Key(u'c-c,down'),
-		'buffer suivant': Key(u'c-x,o'),
-
+		'fenetre droite': Key(u'c-c,right'),
+		'fenetre gauche': Key(u'c-c,left'),
+		'fenetre haut': Key(u'c-c,up'),
+		'fenetre bas': Key(u'c-c,down'),
+		'fenetre suivante': Key(u'c-x,o'),
 		'buffer precedent': Key(u'c-x,left'),
 		'buffer suivant': Key(u'c-x,right'),
 
