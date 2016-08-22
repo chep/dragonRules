@@ -10,29 +10,29 @@ grammar = Grammar('Grammaire C++')
 
 
 def creeBlock(type='mauvais type'):
-        _type = str(type)
-        action = Text('')
+	_type = str(type)
+	action = Text('')
 
-        switcher = {
-	        'if': 'if',
-	        'sinon': 'else',
-	        'tant que': 'while',
-	        'pour': 'for',
-	        'switch': 'switch',
-	        'classe': 'cls',
-        }
+	switcher = {
+		'if': 'if',
+		'sinon': 'else',
+		'tant que': 'while',
+		'pour': 'for',
+		'switch': 'switch',
+		'classe': 'cls',
+	}
 
-        action = Text(switcher.get(_type, ''))
-        action += Key('tab')
-        action.execute()
+	action = Text(switcher.get(_type, ''))
+	action += Key('tab')
+	action.execute()
 
 def creeInstruction(type='mauvais type'):
-        _type = str(type)
-        action = Text(u'')
-        if _type == 'retour':
-                action = Text('return ;')
-        action += Key('left')
-        action.execute()
+	_type = str(type)
+	action = Text(u'')
+	if _type == 'retour':
+		action = Text('return ;')
+		action += Key('left')
+	action.execute()
 
 def concatene(p_words):
 	chaine = str(p_words[0])
