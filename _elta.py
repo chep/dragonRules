@@ -8,14 +8,16 @@ grammar = Grammar('Grammaire ELTA')
 
 class ChepConnexions(MappingRule):
 	mapping = {
-		'connexion <n>': Text('ssh -Y user@172.16.131.%(n)d') + Key('enter'),
+		'connexion <n> [point] <p>': Text('ssh -Y user@172.16.%(n)d.%(p)d') + Key('enter'),
 	}
 
 	extras = [
 		IntegerRef('n', 0, 1000),
+		IntegerRef('p', 0, 1000),
 	]
 	defaults = {
 		'n': 0,
+		'p': 0,
 	}
 
 grammar.add_rule(ChepConnexions())
