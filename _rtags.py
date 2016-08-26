@@ -7,9 +7,10 @@ grammar = Grammar('Grammaire rtags')
 
 class ChepRtags(MappingRule):
 	mapping = {
-		'cherche tag': Key(u'a-semicolon'),
-		'retour tag': Key(u'a-asterisk'),
-		'info tag': Key(u'alt:down,c-semicolon,alt:up'),
+		u'cherche tag': Key(u'a-semicolon'),
+		u'retour tag': Key(u'a-asterisk'),
+		u'info tag': Key(u'alt:down,c-semicolon,alt:up'),
+		u'occurrence': Key(u'c-c,r,slash'),
 	}
 
 
