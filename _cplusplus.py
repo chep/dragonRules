@@ -10,28 +10,30 @@ grammar = Grammar('Grammaire C++')
 
 
 def creeBlock(type='mauvais type'):
-	_type = str(type)
-	action = Text('')
+	_type = unicode(type)
+	action = Text(u'')
 
 	switcher = {
-		'if': 'if',
-		'sinon': 'else',
-		'tant que': 'while',
-		'pour': 'for',
-		'switch': 'switch',
-		'classe': 'cls',
+		u'if': u'if',
+		u'sinon': u'else',
+		u'tant que': u'while',
+		u'pour': u'for',
+		u'switch': u'switch',
+		u'classe': u'cls',
+		u'exception': u'try',
+		u'énumération': u'enum',
 	}
-
 	action = Text(switcher.get(_type, ''))
-	action += Key('tab')
+	action += Key(u'tab')
 	action.execute()
 
-def creeInstruction(type='mauvais type'):
-	_type = str(type)
+def creeInstruction(type=u'mauvais type'):
+	_type = unicode(type)
 	action = Text(u'')
-	if _type == 'retour':
-		action = Text('return ;')
-		action += Key('left')
+	switcher = {
+		u'retour': Text(u'return ;') +  Key(u'left'),
+	}
+	action = switcher.get(_type, 'defaut')
 	action.execute()
 
 def concatene(p_words):
@@ -41,43 +43,114 @@ def concatene(p_words):
 	return chaine
 
 def membre(nom):
-	action = Text('m_')
+	action = Text(u'm_')
 	if isinstance(nom, NatlinkDictationContainer):
 		action += Text(concatene(nom.words))
 	action.execute()
 
 def parametre(nom):
-	action = Text('p_')
+	action = Text(u'p_')
 	if isinstance(nom, NatlinkDictationContainer):
 		action += Text(concatene(nom.words))
+	action.execute()
+
+def variable(nom):
+	if isinstance(nom, NatlinkDictationContainer):
+		action = Text(concatene(nom.words))
 	action.execute()
 
 
 class ChepBlocks(MappingRule):
 	mapping = {
-		'block <type>': Function(creeBlock),
-		'instruction <type>': Function(creeInstruction),
-		'membre [<nom>]': Function(membre),
-		'parametre [<nom>]': Function(parametre),
+		u'block <type>': Function(creeBlock),
+		u'instruction <type>': Function(creeInstruction),
 	}
 	extras = [
 		Dictation(u'type'),
-		Dictation(u'nom'),
 	]
-	defaults = {
-		'nom': '',
-	}
 
 class ChepClasses(MappingRule):
 	mapping = {
-		'constructeur': Text('ct') + Key('tab'),
-		'fonction': Text('f') + Key('tab') + Text('function') + Key('enter'),
-		'declaration': Text('f') + Key('tab') + Text('fun_declaration') + Key('enter'),
-		'prive': Text('private:') + Key('tab') + Key('enter'),
+		u'constructeur': Text(u'ct') + Key(u'tab'),
+		u'fonction': Text(u'f') + Key(u'tab') + Text(u'function') + Key(u'enter'),
+		u'declaration': Text(u'f') + Key(u'tab') + Text(u'fun_declaration') + Key(u'enter'),
+		u'prive': Text(u'private:') + Key(u'tab') + Key(u'enter'),
 	}
+
+
+class ChepVariable(MappingRule):
+	mapping = {
+		u'membre [<nom>]': Function(membre),
+		u'parametre [<nom>]': Function(parametre),
+		u'variable [<nom>]': Function(variable),
+	}
+	extras = [
+		Dictation(u'nom'),
+	]
+	defaults = {
+		u'nom': u'',
+	}
+
+
+class ChepType(CompoundRule):
+	spec = u'type <nom>'
+	extras = [Choice(u'nom', { u'entier': u'int',
+	                           u'non signé': u'unsigned',
+	                           u'flottant': u'float',
+	                           u'double': u'double',
+	                           u'vide': u'void',
+	                           u'i8': u'int8_t',
+	                           u'i16': u'int16_t',
+	                           u'i32': u'int32_t',
+	                           u'i64': u'int64_t',
+	                           u'u8': u'uint8_t',
+	                           u'u16': u'uint16_t',
+	                           u'u32': u'uint32_t',
+	                           u'u64': u'uint64_t',
+	                         }
+	                )
+	]
+
+	def _process_recognition(self, node, extras):
+		action = Text(extras[u'nom'])
+		action.execute()
+
+
+class ChepRetour(CompoundRule):
+	spec = u'retour <valeur>'
+	extras = [Choice(u'valeur', { u'vrai': u'true',
+	                           u'faux': u'false',
+	                         }
+	                )
+	]
+
+	def _process_recognition(self, node, extras):
+		action = Text(u'return ' + extras[u'valeur'] + ';')
+		action.execute()
+
+
+class ChepDivers(MappingRule):
+	mapping = {
+		u'const': Text(u'const'),
+	}
+
+
+class ChepStandard(MappingRule):
+	mapping = {
+		u'std': Text(u'std::'),
+		u'endl': Text(u'std::endl'),
+		u'console out': Text(u'std::cout<<'),
+		u'console erreur': Text(u'std::cerr<<'),
+	}
+
 
 grammar.add_rule(ChepBlocks())
 grammar.add_rule(ChepClasses())
+grammar.add_rule(ChepVariable())
+grammar.add_rule(ChepType())
+grammar.add_rule(ChepRetour())
+grammar.add_rule(ChepDivers())
+grammar.add_rule(ChepStandard())
 
 grammar.load()
 

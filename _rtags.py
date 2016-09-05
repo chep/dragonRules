@@ -11,6 +11,7 @@ class ChepRtags(MappingRule):
 		u'retour tag': Key(u'a-asterisk'),
 		u'info tag': Key(u'alt:down,c-semicolon,alt:up'),
 		u'occurrence': Key(u'c-c,r,slash'),
+		u'complétion': Key(u'c-tab'),
 	}
 
 

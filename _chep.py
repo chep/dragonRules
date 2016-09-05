@@ -20,10 +20,11 @@ class ChepGeneral(MappingRule):
 		u'control c\'est': Key(u'c-c'),
 		u'control air': Key(u'c-r'),
 		u'tilde': Key(u'tilde'),
-		u'alt': Key(u'alt:down'),
 		u'alt air': Key(u'a-r'),
+		u'alt': Key(u'alt:down'),
 		u'control': Key(u'ctrl:down'),
-		u'relâche': Key(u'alt:up,ctrl:up'),
+		u'Shift': Key(u'shift:down'),
+		u'relâche': Key(u'alt:up,ctrl:up,shift:up'),
 	}
 	extras = [
 		Dictation(u'text'),
@@ -153,6 +154,12 @@ class ChepActions(MappingRule):
 		u'agenda': Key(u'c-c,a,n'),
 	}
 
+class ChepCommandes(MappingRule):
+	mapping = {
+		u'grep': Key(u'a-x') + Text(u'grep') + Key(u'enter'),
+	}
+
+
 class ChepDeplacements(MappingRule):
 	mapping = {
 		u'droite': Key(u'right'),
@@ -210,6 +217,8 @@ class ChepTexte(MappingRule):
 class ChepDivers(MappingRule):
 	mapping = {
 		u'musique': Key(u'f9'),
+		u'musique lecture': Key(u'a-x') + Text(u'chep-mpd-play') + Key('enter'),
+		u'musique stop': Key(u'a-x') + Text(u'chep-mpd-stop') + Key('enter'),
 		u'terminal': Key(u'f12'),
 	}
 
@@ -328,6 +337,7 @@ grammar.add_rule(ChepDeplacements())
 grammar.add_rule(ChepSymboles())
 grammar.add_rule(ChepBuffers())
 grammar.add_rule(ChepActions())
+grammar.add_rule(ChepCommandes())
 grammar.add_rule(ChepManipulation())
 grammar.add_rule(ChepTexte())
 grammar.add_rule(ChepLettres())
