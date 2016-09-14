@@ -7,11 +7,11 @@ grammar = Grammar(u'Grammaire terminal')
 
 class ChepTerminal(MappingRule):
 	mapping = {
-		u'liste': Text(u'ls') + Key(u'enter'),
+		u'liste fichiers': Text(u'ls') + Key(u'enter'),
 		u'liste complète': Text(u'ls -lh') + Key(u'enter'),
 		u'terminal suivant': Key(u's-right'),
 		u'terminal précédent': Key(u's-left'),
-		u'nouveau terminal': Key(u'ctrl:down,s-t,ctrl:up'),
+		u'nouveau terminal': Key(u'cs-t'),
 	}
 	extras = [
 		Dictation(u'text'),

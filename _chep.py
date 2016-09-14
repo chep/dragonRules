@@ -16,7 +16,7 @@ class ChepGeneral(MappingRule):
 		u'argument <n>': Key(u'c-u') + Text(u'%(n)d'),
 		u'<n> fois <text>': Mimic(extra='text') * Repeat(extra='n'),
 		u'Alt tab': Key(u'a-tab'),
-		u'loque écran': Key(u'alt:down,c-l,alt:up'),
+		u'loque écran': Key(u'ca-l'),
 		u'control c\'est': Key(u'c-c'),
 		u'control air': Key(u'c-r'),
 		u'tilde': Key(u'tilde'),
@@ -59,8 +59,8 @@ class ChepBuffers(MappingRule):
 
 		u'liste buffer': Key(u'c-x,c-b'),
 		u'change buffer': Key(u'c-x,b'),
-		u'place ancre [<n>]': Key(u'c-c,A,P') + Text(u'%(n)d'),
-		u'ancre [<n>]': Key(u'c-c,A') + Text(u'%(n)d'),
+		u'place ancre [<n>]': Key(u'a-colon') + Text(u'(chep-anchor-place %(n)d)') + Key(u'enter'),
+		u'ancre [<n>]': Key(u'a-colon') + Text(u'(chep-anchor-go %(n)d)') + Key(u'enter'),
 
 		u'buffer scratch': Key(u'a-colon') + Text(u'(switch-to-buffer "*scratch*")') + Key(u'enter'),
 	}
@@ -120,10 +120,13 @@ class ChepSymboles(MappingRule):
 		u'égal': Key(u'equal'),
 		u'égal égal': Key(u'equal,equal'),
 		u'exclamation': Key(u'exclamation'),
+		u'not': Key(u'exclamation'),
 		u'interrogation': Key(u'question'),
 		u'paillpe': Key(u'bar'),
 		u'underscore': Key(u'underscore'),
 		u'et commercial': Key(u'ampersand'),
+		u'double et': Key(u'ampersand,ampersand'),
+		u'double ou': Key(u'bar,bar'),
 		u'flèche': Key(u'minus,rangle'),
 		u'at': Key(u'at'),
 		u'plus égal': Key(u'plus,equal'),
@@ -185,6 +188,9 @@ class ChepDeplacements(MappingRule):
 		u'ligne': Key(u'a-g,a-g'),
 
 		u'correspondance': Key(u'a-x') + Text('chep-correspondance') + Key('enter'),
+
+		u'fonction suivante':   Key(u'ac-e'),
+		u'fonction précédente':  Key(u'ac-a'),
 	}
 
 class ChepManipulation(MappingRule):
@@ -197,14 +203,19 @@ class ChepManipulation(MappingRule):
 		u'colle': Key(u'c-y'),
 		u'colle colle': Key(u'c-y,c-y'),
 		u'colle précédent': Key(u'a-y'),
-		u'colle suivant': Key(u'ctrl:down,a-y,ctrl:up'),
+		u'colle suivant': Key(u'ca-y'),
 		u'col précédent': Key(u'a-y'),
-		u'col suivant': Key(u'ctrl:down,a-y,ctrl:up'),
+		u'col suivant': Key(u'ca-y'),
 		u'kill': Key(u'c-k'),
+		u'qu\'il': Key(u'c-k'),
 		u'kill kill': Key(u'c-k,c-k'),
+		u'qu\'il qu\'il': Key(u'c-k,c-k'),
 
 		u'efface mot': Key(u'a-backspace'),
 		u'supprime mot': Key(u'c-del'),
+
+		u'échange': Key(u'c-t'),
+		u'échange mot': Key(u'a-t'),
 	}
 
 class ChepTexte(MappingRule):

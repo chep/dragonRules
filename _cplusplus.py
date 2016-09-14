@@ -22,6 +22,7 @@ def creeBlock(type='mauvais type'):
 		u'classe': u'cls',
 		u'exception': u'try',
 		u'énumération': u'enum',
+		u'structure': u'struct',
 	}
 	action = Text(switcher.get(_type, ''))
 	action += Key(u'tab')
@@ -74,7 +75,9 @@ class ChepClasses(MappingRule):
 		u'constructeur': Text(u'ct') + Key(u'tab'),
 		u'fonction': Text(u'f') + Key(u'tab') + Text(u'function') + Key(u'enter'),
 		u'declaration': Text(u'f') + Key(u'tab') + Text(u'fun_declaration') + Key(u'enter'),
-		u'prive': Text(u'private:') + Key(u'tab') + Key(u'enter'),
+		u'privé': Text(u'private:') + Key(u'tab') + Key(u'enter'),
+		u'public': Text(u'public:') + Key(u'tab') + Key(u'enter'),
+		u'protégé': Text(u'protected:') + Key(u'tab') + Key(u'enter'),
 	}
 
 
@@ -95,6 +98,7 @@ class ChepVariable(MappingRule):
 class ChepType(CompoundRule):
 	spec = u'type <nom>'
 	extras = [Choice(u'nom', { u'entier': u'int',
+	                           u'bool': u'bool',
 	                           u'non signé': u'unsigned',
 	                           u'flottant': u'float',
 	                           u'double': u'double',
@@ -132,6 +136,7 @@ class ChepRetour(CompoundRule):
 class ChepDivers(MappingRule):
 	mapping = {
 		u'const': Text(u'const'),
+		u'créer en tête': Key(u'cs-f1'),
 	}
 
 
@@ -139,6 +144,7 @@ class ChepStandard(MappingRule):
 	mapping = {
 		u'std': Text(u'std::'),
 		u'endl': Text(u'std::endl'),
+		u'string': Text(u'std::string'),
 		u'console out': Text(u'std::cout<<'),
 		u'console erreur': Text(u'std::cerr<<'),
 	}
