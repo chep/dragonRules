@@ -4,10 +4,6 @@
 from aenea import *
 from dragonfly.engines.backend_natlink.dictation import NatlinkDictationContainer
 
-grammar = Grammar('Grammaire C++')
-
-
-
 
 def creeBlock(type='mauvais type'):
 	_type = unicode(type)
@@ -150,18 +146,15 @@ class ChepStandard(MappingRule):
 	}
 
 
-grammar.add_rule(ChepBlocks())
-grammar.add_rule(ChepClasses())
-grammar.add_rule(ChepVariable())
-grammar.add_rule(ChepType())
-grammar.add_rule(ChepRetour())
-grammar.add_rule(ChepDivers())
-grammar.add_rule(ChepStandard())
+def grammaireCPlusPlus():
+	grammarCpp = Grammar('Grammaire C++')
+	grammarCpp.add_rule(ChepBlocks())
+	grammarCpp.add_rule(ChepClasses())
+	grammarCpp.add_rule(ChepVariable())
+	grammarCpp.add_rule(ChepType())
+	grammarCpp.add_rule(ChepRetour())
+	grammarCpp.add_rule(ChepDivers())
+	grammarCpp.add_rule(ChepStandard())
+	return grammarCpp;
 
-grammar.load()
 
-def unload():
-	global grammar
-	if grammar:
-		grammar.unload()
-	grammar = None

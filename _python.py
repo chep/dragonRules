@@ -3,27 +3,41 @@
 
 from aenea import *
 
-grammar = Grammar('Grammaire python')
+def creeBlock(type='mauvais type'):
+	_type = unicode(type)
+	action = Text(u'')
 
-class ChepPython(MappingRule):
+	switcher = {
+		u'if': u'if',
+		u'if sinon': u'ife',
+		u'tant que': u'while',
+		u'temps que': u'wh', #au cas où on serait mal compris
+		u'avec': u'with',
+		u'pour': u'for',
+		u'fonction': u'f',
+		u'init': u'init',
+		u'imite': u'init', #au cas où on serait mal compris
+	}
+	action = Text(switcher.get(_type, ''))
+	action += Key(u'tab')
+	action.execute()
+
+class ChepBlocks(MappingRule):
 	mapping = {
-		'python tag': Key(u'a-dot'),
-		'python reviens': Key(u'a-colon') + Text(u'(pop-tag-mark)') + Key(u'enter'),
+		u'block <type>': Function(creeBlock),
 	}
 	extras = [
-		Dictation(u'text'),
-		Integer('n', 0, 10000000),
+		Dictation(u'type'),
 	]
-	defaults = {
-		'n': 1,
-	}
 
-grammar.add_rule(ChepPython())
+class ChepImport(MappingRule):
+	mapping = {
+		u'import from': Text(u'from') + Key(u'tab'),
+		}
 
-grammar.load()
+def grammairePython():
+	grammarPy = Grammar('Grammaire python')
+	grammarPy.add_rule(ChepImport())
+	grammarPy.add_rule(ChepBlocks())
+	return grammarPy
 
-def unload():
-	global grammar
-	if grammar:
-		grammar.unload()
-	grammar = None

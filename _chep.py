@@ -230,6 +230,7 @@ class ChepDivers(MappingRule):
 		u'musique': Key(u'f9'),
 		u'musique lecture': Key(u'a-x') + Text(u'chep-mpd-play') + Key('enter'),
 		u'musique stop': Key(u'a-x') + Text(u'chep-mpd-stop') + Key('enter'),
+		u'musique pause': Key(u'a-x') + Text(u'chep-mpd-pause') + Key('enter'),
 		u'terminal': Key(u'f12'),
 	}
 
