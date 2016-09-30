@@ -27,12 +27,15 @@ class ChepCommandes(MappingRule):
 		                                  + u'%(lettre)s'.lower()
 		                                  + u'%(n)d') + Key(u'enter'),
 		u'démonte usb': Text(u'umount /media/usb') + Key(u'enter'),
+		u'tar décompresse': Text(u'tar xf '),
+		u'tar compresse': Text(u'tar czf '),
+		u'cd': Text(u'cd '),
 	}
 	extras = [
-		Choice(u'lettre', { u'a': u'a',
-		                    u'b': u'b',
-		                    u'c': u'c',
-		                    u'd': u'd',
+		Choice(u'lettre', { u'alpha': u'a',
+		                    u'bravo': u'b',
+		                    u'charlie': u'c',
+		                    u'delta': u'd',
 		                  }
 		),
 		Integer('n', 0, 10000000),
@@ -41,9 +44,14 @@ class ChepCommandes(MappingRule):
 		'n': 1,
 	}
 
+class ChepApplication(MappingRule):
+	mapping = {
+		u'lance vinagre': Text(u'vinagre >/dev/null 2>&1 &') + Key(u'enter'),
+	}
 
 grammar.add_rule(ChepTerminal())
 grammar.add_rule(ChepCommandes())
+grammar.add_rule(ChepApplication())
 
 grammar.load()
 

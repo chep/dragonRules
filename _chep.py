@@ -102,11 +102,14 @@ class ChepSymboles(MappingRule):
 		u'virgule': Key(u'comma'),
 		u'point virgule': Key(u'semicolon'),
 		u'point': Key(u'dot'),
+		u'point point': Key(u'dot, dot'),
+		u'point slash': Key(u'dot, slash'),
+		u'point point slash': Key(u'dot, dot, slash'),
 		u'dièse': Key(u'hash'),
 		u'pourcent': Key(u'percent'),
-		u'plus': Key(u'plus'),
-		u'moins': Key(u'minus'),
-		u'multiplier': Key(u'asterisk'),
+		u'plus simple': Key(u'plus'),
+		u'moins simple': Key(u'minus'),
+		u'multiplier simple': Key(u'asterisk'),
 		u'dollar': Key(u'dollar'),
 		u'étoile': Key(u'asterisk'),
 		u'slash': Key(u'slash'),
@@ -117,8 +120,8 @@ class ChepSymboles(MappingRule):
 		u'guillemets': Key(u'dquote'),
 		u'supérieur': Key(u'rangle'),
 		u'inférieur': Key(u'langle'),
-		u'égal': Key(u'equal'),
-		u'égal égal': Key(u'equal,equal'),
+		u'égal simple': Key(u'equal'),
+		u'égal égal': Key(u'space, equal, equal, space'),
 		u'exclamation': Key(u'exclamation'),
 		u'not': Key(u'exclamation'),
 		u'interrogation': Key(u'question'),
@@ -129,8 +132,13 @@ class ChepSymboles(MappingRule):
 		u'double ou': Key(u'bar,bar'),
 		u'flèche': Key(u'minus,rangle'),
 		u'at': Key(u'at'),
-		u'plus égal': Key(u'plus,equal'),
-		u'moins égal': Key(u'minus,equal'),
+		u'plus égal': Key(u'space, plus, equal, space'),
+		u'moins égal': Key(u'space, minus, equal, space'),
+		u'plus plus': Key(u'plus, plus'),
+		u'égal': Key(u'space, equal, space'),
+		u'plus': Key(u'space, plus, space'),
+		u'moins': Key(u'space, minus, space'),
+		u'multiplier': Key(u'space, asterisk, space'),
 	}
 
 
@@ -155,6 +163,7 @@ class ChepActions(MappingRule):
 		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key('enter'),
 		u'compile': Key(u'a-x') + Text(u'compile') + Key('enter'),
 		u'agenda': Key(u'c-c,a,n'),
+		u'calendrier': Key(u'a-x') + Text('calendar') + Key('enter'),
 	}
 
 class ChepCommandes(MappingRule):
@@ -223,6 +232,7 @@ class ChepTexte(MappingRule):
 		u'capital': Key(u'a-c'),
 		u'minuscule': Key(u'a-l'),
 		u'majuscule': Key(u'a-u'),
+		u'insertion rectangle': Key(u'a-x') + Text(u'string-rectangle') + Key(u'enter'),
 	}
 
 class ChepDivers(MappingRule):

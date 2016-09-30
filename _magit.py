@@ -11,6 +11,7 @@ class ChepMagit(MappingRule):
 		u'commit': Key(u'c-c,c-c'),
 		u'commit svn': Key(u'a-x') + Text(u'magit-svn-dcommit') + Key('enter'),
 		u'svn rebase': Key(u'a-x') + Text(u'magit-svn-rebase') + Key('enter'),
+		u'git blame': Key(u'a-x') + Text(u'magit-blame') + Key('enter'),
 	}
 
 

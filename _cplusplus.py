@@ -133,6 +133,10 @@ class ChepDivers(MappingRule):
 	mapping = {
 		u'const': Text(u'const'),
 		u'créer en tête': Key(u'cs-f1'),
+		u'inclusion chevron': Text(u'inc') + Key(u'tab, tab') + Text(u'<') + Key(u'tab, enter'),
+		u'inclusion guillemet': Text(u'inc') + Key(u'tab, tab') + Text(u'"') + Key(u'tab, enter'),
+		u'lance': Text(u'throw'),
+		u'différent': Text(u' != '),
 	}
 
 
