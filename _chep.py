@@ -131,7 +131,7 @@ class ChepSymboles(MappingRule):
 		u'double et': Key(u'ampersand,ampersand'),
 		u'double ou': Key(u'bar,bar'),
 		u'flèche': Key(u'minus,rangle'),
-		u'at': Key(u'at'),
+		u'arobase': Key(u'at'),
 		u'plus égal': Key(u'space, plus, equal, space'),
 		u'moins égal': Key(u'space, minus, equal, space'),
 		u'plus plus': Key(u'plus, plus'),
@@ -139,6 +139,8 @@ class ChepSymboles(MappingRule):
 		u'plus': Key(u'space, plus, space'),
 		u'moins': Key(u'space, minus, space'),
 		u'multiplier': Key(u'space, asterisk, space'),
+		u'chevron': Key(u'langle, rangle, left'),
+
 	}
 
 
@@ -160,10 +162,11 @@ class ChepActions(MappingRule):
 		u'cherche mot': Key(u'c-w'),
 		u'remplace': Key(u'a-percent'),
 		u'ouvre url': Key(u'c-enter'),
-		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key('enter'),
-		u'compile': Key(u'a-x') + Text(u'compile') + Key('enter'),
+		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
+		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),
 		u'agenda': Key(u'c-c,a,n'),
-		u'calendrier': Key(u'a-x') + Text('calendar') + Key('enter'),
+		u'calendrier': Key(u'a-x') + Text(u'calendar') + Key(u'enter'),
+		u'speedbar': Key(u'a-x') + Text(u'sr-speedbar-toggle') + Key(u'enter'),
 	}
 
 class ChepCommandes(MappingRule):

@@ -30,6 +30,7 @@ class ChepCommandes(MappingRule):
 		u'tar décompresse': Text(u'tar xf '),
 		u'tar compresse': Text(u'tar czf '),
 		u'cd': Text(u'cd '),
+		u'ssh': Text(u'ssh '),
 	}
 	extras = [
 		Choice(u'lettre', { u'alpha': u'a',
