@@ -7,7 +7,7 @@ class ChepEval(MappingRule):
 	mapping = {
 		u'évalue région': Key(u'a-x') + Text(u'eval-region') + Key(u'enter'),
 		u'évalue buffer': Key(u'a-x') + Text(u'eval-buffer') + Key(u'enter'),
-		u'évalue fonction': Key(u'a-x') + Text(u'eval-last-sexp') + Key(u'enter'),
+		u'évalue fonction': Key(u'a-x') + Text(u'eval-defun') + Key(u'enter'),
 		}
 
 def grammaireLisp():

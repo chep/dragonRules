@@ -128,8 +128,8 @@ class ChepSymboles(MappingRule):
 		u'paillpe': Key(u'bar'),
 		u'underscore': Key(u'underscore'),
 		u'et commercial': Key(u'ampersand'),
-		u'double et': Key(u'ampersand,ampersand'),
-		u'double ou': Key(u'bar,bar'),
+		u'double et': Key(u'space, ampersand, ampersand, space'),
+		u'double ou': Key(u'space, bar, bar, space'),
 		u'flèche': Key(u'minus,rangle'),
 		u'arobase': Key(u'at'),
 		u'plus égal': Key(u'space, plus, equal, space'),
@@ -167,6 +167,7 @@ class ChepActions(MappingRule):
 		u'agenda': Key(u'c-c,a,n'),
 		u'calendrier': Key(u'a-x') + Text(u'calendar') + Key(u'enter'),
 		u'speedbar': Key(u'a-x') + Text(u'sr-speedbar-toggle') + Key(u'enter'),
+		u'manuel': Key(u'a-x') + Text(u'man') + Key(u'enter'),
 	}
 
 class ChepCommandes(MappingRule):
@@ -245,6 +246,7 @@ class ChepDivers(MappingRule):
 		u'musique stop': Key(u'a-x') + Text(u'chep-mpd-stop') + Key('enter'),
 		u'musique pause': Key(u'a-x') + Text(u'chep-mpd-pause') + Key('enter'),
 		u'terminal': Key(u'f12'),
+		u'bonjour irc': Key(u'a-x') + Text(u'chep-erc-bonjour') + Key('enter'),
 	}
 
 

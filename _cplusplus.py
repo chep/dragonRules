@@ -13,6 +13,7 @@ def creeBlock(type='mauvais type'):
 		u'if': u'if',
 		u'sinon': u'else',
 		u'tant que': u'while',
+		u'temps que': u'while',
 		u'pour': u'for',
 		u'switch': u'switch',
 		u'classe': u'cls',
@@ -70,6 +71,7 @@ class ChepClasses(MappingRule):
 	mapping = {
 		u'constructeur': Text(u'ct') + Key(u'tab'),
 		u'fonction': Text(u'f') + Key(u'tab') + Text(u'function') + Key(u'enter'),
+		u'fonction main': Text(u'main') + Key(u'tab'),
 		u'declaration': Text(u'f') + Key(u'tab') + Text(u'fun_declaration') + Key(u'enter'),
 		u'privé': Text(u'private:') + Key(u'tab') + Key(u'enter'),
 		u'public': Text(u'public:') + Key(u'tab') + Key(u'enter'),
@@ -99,14 +101,14 @@ class ChepType(CompoundRule):
 	                           u'flottant': u'float',
 	                           u'double': u'double',
 	                           u'vide': u'void',
-	                           u'i8': u'int8_t',
-	                           u'i16': u'int16_t',
-	                           u'i32': u'int32_t',
-	                           u'i64': u'int64_t',
-	                           u'u8': u'uint8_t',
-	                           u'u16': u'uint16_t',
-	                           u'u32': u'uint32_t',
-	                           u'u64': u'uint64_t',
+	                           u'entier 8': u'int8_t',
+	                           u'entier 16': u'int16_t',
+	                           u'entier 32': u'int32_t',
+	                           u'entier 64': u'int64_t',
+	                           u'non signé 8': u'uint8_t',
+	                           u'non signé 16': u'uint16_t',
+	                           u'non signé 32': u'uint32_t',
+	                           u'non signé 64': u'uint64_t',
 	                         }
 	                )
 	]
@@ -137,6 +139,10 @@ class ChepDivers(MappingRule):
 		u'inclusion guillemet': Text(u'inc') + Key(u'tab, tab') + Text(u'"') + Key(u'tab, enter'),
 		u'lance': Text(u'throw'),
 		u'différent': Text(u' != '),
+		u'vrai': Text(u'true'),
+		u'faux': Text(u'false'),
+
+		u'pointeur nul': Text(u'nullptr'),
 	}
 
 
