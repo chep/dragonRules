@@ -35,9 +35,9 @@ def creeInstruction(type=u'mauvais type'):
 	action.execute()
 
 def concatene(p_words):
-	chaine = str(p_words[0])
+	chaine = unicode(p_words[0])
 	for w in p_words[1:]:
-		chaine += str(w).title()
+		chaine += unicode(w).title()
 	return chaine
 
 def membre(nom):
@@ -95,20 +95,20 @@ class ChepVariable(MappingRule):
 
 class ChepType(CompoundRule):
 	spec = u'type <nom>'
-	extras = [Choice(u'nom', { u'entier': u'int',
-	                           u'bool': u'bool',
-	                           u'non signé': u'unsigned',
-	                           u'flottant': u'float',
-	                           u'double': u'double',
-	                           u'vide': u'void',
-	                           u'entier 8': u'int8_t',
-	                           u'entier 16': u'int16_t',
-	                           u'entier 32': u'int32_t',
-	                           u'entier 64': u'int64_t',
-	                           u'non signé 8': u'uint8_t',
-	                           u'non signé 16': u'uint16_t',
-	                           u'non signé 32': u'uint32_t',
-	                           u'non signé 64': u'uint64_t',
+	extras = [Choice(u'nom', { u'entier': u'int ',
+	                           u'bool': u'bool ',
+	                           u'non signé': u'unsigned ',
+	                           u'flottant': u'float ',
+	                           u'double': u'double ',
+	                           u'vide': u'void ',
+	                           u'entier 8': u'int8_t ',
+	                           u'entier 16': u'int16_t ',
+	                           u'entier 32': u'int32_t ',
+	                           u'entier 64': u'int64_t ',
+	                           u'non signé 8': u'uint8_t ',
+	                           u'non signé 16': u'uint16_t ',
+	                           u'non signé 32': u'uint32_t ',
+	                           u'non signé 64': u'uint64_t ',
 	                         }
 	                )
 	]
@@ -133,7 +133,7 @@ class ChepRetour(CompoundRule):
 
 class ChepDivers(MappingRule):
 	mapping = {
-		u'const': Text(u'const'),
+		u'const': Text(u'const '),
 		u'créer en tête': Key(u'cs-f1'),
 		u'inclusion chevron': Text(u'inc') + Key(u'tab, tab') + Text(u'<') + Key(u'tab, enter'),
 		u'inclusion guillemet': Text(u'inc') + Key(u'tab, tab') + Text(u'"') + Key(u'tab, enter'),
@@ -143,6 +143,10 @@ class ChepDivers(MappingRule):
 		u'faux': Text(u'false'),
 
 		u'pointeur nul': Text(u'nullptr'),
+
+		u'envoie': Text(u'>>'),
+		u'reçoit': Text(u'<<'),
+		u'double deux points': Text(u'::'),
 	}
 
 

@@ -139,6 +139,7 @@ class ChepSymboles(MappingRule):
 		u'plus': Key(u'space, plus, space'),
 		u'moins': Key(u'space, minus, space'),
 		u'multiplier': Key(u'space, asterisk, space'),
+		u'diviser': Key(u'space, slash, space'),
 		u'chevron': Key(u'langle, rangle, left'),
 
 	}
