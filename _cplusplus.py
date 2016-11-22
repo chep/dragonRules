@@ -35,7 +35,7 @@ def creeInstruction(type=u'mauvais type'):
 	action.execute()
 
 def concatene(p_words):
-	chaine = unicode(p_words[0])
+	chaine = unicode(p_words[0]).lower()
 	for w in p_words[1:]:
 		chaine += unicode(w).title()
 	return chaine
@@ -100,6 +100,7 @@ class ChepType(CompoundRule):
 	                           u'non signé': u'unsigned ',
 	                           u'flottant': u'float ',
 	                           u'double': u'double ',
+	                           u'char': u'char ',
 	                           u'vide': u'void ',
 	                           u'entier 8': u'int8_t ',
 	                           u'entier 16': u'int16_t ',
