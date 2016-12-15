@@ -118,8 +118,12 @@ class ChepSymboles(MappingRule):
 		u'quote': Key(u'apostrophe,apostrophe,left'),
 		u'double quote': Key(u'dquote,dquote,left'),
 		u'guillemets': Key(u'dquote'),
-		u'supérieur': Key(u'rangle'),
-		u'inférieur': Key(u'langle'),
+		u'supérieur': Key(u'space, rangle, space'),
+		u'inférieur': Key(u'space, langle, space'),
+		u'supérieur simple': Key(u'rangle'),
+		u'inférieur simple': Key(u'langle'),
+		u'supérieur égal': Key(u'space, rangle, equal, space'),
+		u'inférieur égal': Key(u'space, langle, equal, space'),
 		u'égal simple': Key(u'equal'),
 		u'égal égal': Key(u'space, equal, equal, space'),
 		u'exclamation': Key(u'exclamation'),
@@ -162,6 +166,7 @@ class ChepActions(MappingRule):
 		u'cherche arrière': Key(u'c-r'),
 		u'cherche mot': Key(u'c-w'),
 		u'remplace': Key(u'a-percent'),
+		u'remplace regexp': Key(u'a-x') + Text(u'query-replace-regexp') + Key(u'enter'),
 		u'ouvre url': Key(u'c-enter'),
 		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
 		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),
@@ -228,7 +233,7 @@ class ChepManipulation(MappingRule):
 		u'efface mot': Key(u'a-backspace'),
 		u'supprime mot': Key(u'c-del'),
 
-		u'échange': Key(u'c-t'),
+		u'échange lettre': Key(u'c-t'),
 		u'échange mot': Key(u'a-t'),
 	}
 
@@ -248,6 +253,8 @@ class ChepDivers(MappingRule):
 		u'musique pause': Key(u'a-x') + Text(u'chep-mpd-pause') + Key('enter'),
 		u'terminal': Key(u'f12'),
 		u'bonjour irc': Key(u'a-x') + Text(u'chep-erc-bonjour') + Key('enter'),
+		u'correction auto': Key(u'a-x') + Text(u'flyspell-auto-correct-word') + Key('enter'),
+		u'choix correction': Key(u'a-x') + Text(u'ispell-word') + Key('enter'),
 	}
 
 

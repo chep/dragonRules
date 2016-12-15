@@ -12,6 +12,7 @@ class ChepRtags(MappingRule):
 		u'info tag': Key(u'ca-semicolon'),
 		u'occurrence': Key(u'c-c,r,slash'),
 		u'complétion': Key(u'c-tab'),
+		u'renomme tag': Key(u'a-x') + Text(u'rtags-rename-symbol') + Key(u'enter'),
 	}
 
 

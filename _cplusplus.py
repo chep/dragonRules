@@ -70,9 +70,9 @@ class ChepBlocks(MappingRule):
 class ChepClasses(MappingRule):
 	mapping = {
 		u'constructeur': Text(u'ct') + Key(u'tab'),
-		u'fonction': Text(u'f') + Key(u'tab') + Text(u'function') + Key(u'enter'),
+		u'fonction': Text(u'mf') + Key(u'tab'),
 		u'fonction main': Text(u'main') + Key(u'tab'),
-		u'declaration': Text(u'f') + Key(u'tab') + Text(u'fun_declaration') + Key(u'enter'),
+		u'déclaration': Text(u'f') + Key(u'tab'),
 		u'privé': Text(u'private:') + Key(u'tab') + Key(u'enter'),
 		u'public': Text(u'public:') + Key(u'tab') + Key(u'enter'),
 		u'protégé': Text(u'protected:') + Key(u'tab') + Key(u'enter'),
@@ -110,6 +110,7 @@ class ChepType(CompoundRule):
 	                           u'non signé 16': u'uint16_t ',
 	                           u'non signé 32': u'uint32_t ',
 	                           u'non signé 64': u'uint64_t ',
+	                           u'auto': u'auto ',
 	                         }
 	                )
 	]
@@ -136,8 +137,8 @@ class ChepDivers(MappingRule):
 	mapping = {
 		u'const': Text(u'const '),
 		u'créer en tête': Key(u'cs-f1'),
-		u'inclusion chevron': Text(u'inc') + Key(u'tab, tab') + Text(u'<') + Key(u'tab, enter'),
-		u'inclusion guillemet': Text(u'inc') + Key(u'tab, tab') + Text(u'"') + Key(u'tab, enter'),
+		u'inclusion chevron': Text(u'incs') + Key(u'tab'),
+		u'inclusion guillemet': Text(u'incl') + Key(u'tab'),
 		u'lance': Text(u'throw'),
 		u'différent': Text(u' != '),
 		u'vrai': Text(u'true'),
