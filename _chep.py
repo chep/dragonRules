@@ -170,7 +170,7 @@ class ChepActions(MappingRule):
 		u'remplace': Key(u'a-percent'),
 		u'remplace regexp': Key(u'a-x') + Text(u'query-replace-regexp') + Key(u'enter'),
 		u'ouvre url': Key(u'c-enter'),
-		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
+		u'recherche google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
 		u'agenda': Key(u'c-c,a,n'),
 		u'calendrier': Key(u'a-x') + Text(u'calendar') + Key(u'enter'),
 		u'speedbar': Key(u'a-x') + Text(u'sr-speedbar-toggle') + Key(u'enter'),
