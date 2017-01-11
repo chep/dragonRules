@@ -25,6 +25,7 @@ class ChepGeneral(MappingRule):
 		u'control': Key(u'ctrl:down'),
 		u'Shift': Key(u'shift:down'),
 		u'relâche': Key(u'alt:up,ctrl:up,shift:up'),
+		u'salut': Text(u''),
 	}
 	extras = [
 		Dictation(u'text'),
@@ -77,6 +78,7 @@ class ChepAide(MappingRule):
 		u'aide fonction': Key(u'c-h,f'),
 		u'aide variable': Key(u'c-h,v'),
 		u'aide touche': Key(u'c-h,k'),
+		u'aide mode': Key(u'c-h,m'),
 	}
 
 class ChepSymboles(MappingRule):
@@ -169,7 +171,6 @@ class ChepActions(MappingRule):
 		u'remplace regexp': Key(u'a-x') + Text(u'query-replace-regexp') + Key(u'enter'),
 		u'ouvre url': Key(u'c-enter'),
 		u'google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
-		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),
 		u'agenda': Key(u'c-c,a,n'),
 		u'calendrier': Key(u'a-x') + Text(u'calendar') + Key(u'enter'),
 		u'speedbar': Key(u'a-x') + Text(u'sr-speedbar-toggle') + Key(u'enter'),

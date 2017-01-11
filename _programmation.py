@@ -5,12 +5,14 @@ from aenea import *
 from _cplusplus import *
 from _python import *
 from _lisp import *
+from _java import *
 
 
 switcherGrammaire = {
 	u'c++': grammaireCPlusPlus(),
 	u'python': grammairePython(),
 	u'lisp': grammaireLisp(),
+	u'java': grammaireJava(),
 }
 
 class Programmation:
@@ -33,12 +35,15 @@ def appelPython():
 	prog.charge(u'python')
 def appelLisp():
 	prog.charge(u'lisp')
+def appelJava():
+	prog.charge(u'java')
 
 class ChepProg(MappingRule):
 	mapping = {
  		u'programmation C plus plus':Function(appelCplusplus),
  		u'programmation python': Function(appelPython),
  		u'programmation lisp': Function(appelLisp),
+ 		u'programmation java': Function(appelJava),
  	}
 
 

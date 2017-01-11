@@ -149,6 +149,8 @@ class ChepDivers(MappingRule):
 		u'envoie': Text(u'>>'),
 		u'reçoit': Text(u'<<'),
 		u'double deux points': Text(u'::'),
+
+		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),
 	}
 
 
@@ -161,6 +163,15 @@ class ChepStandard(MappingRule):
 		u'console erreur': Text(u'std::cerr<<'),
 	}
 
+class ChepTagsPlusPlus(MappingRule):
+	mapping = {
+		u'cherche tag': Key(u'a-semicolon'),
+		u'retour tag': Key(u'a-asterisk'),
+		u'info tag': Key(u'ca-semicolon'),
+		u'occurrence': Key(u'c-c,r,slash'),
+		u'complétion': Key(u'c-tab'),
+		u'renomme tag': Key(u'a-x') + Text(u'rtags-rename-symbol') + Key(u'enter'),
+	}
 
 def grammaireCPlusPlus():
 	grammarCpp = Grammar('Grammaire C++')
@@ -171,6 +182,7 @@ def grammaireCPlusPlus():
 	grammarCpp.add_rule(ChepRetour())
 	grammarCpp.add_rule(ChepDivers())
 	grammarCpp.add_rule(ChepStandard())
+	grammarCpp.add_rule(ChepTagsPlusPlus())
 	return grammarCpp;
 
 
