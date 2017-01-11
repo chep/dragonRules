@@ -3,7 +3,7 @@
 
 from aenea import *
 from dragonfly.engines.backend_natlink.dictation import NatlinkDictationContainer
-
+from _communCode import *
 
 class ChepTagsJava(MappingRule):
 	mapping = {
@@ -17,4 +17,5 @@ class ChepTagsJava(MappingRule):
 def grammaireJava():
 	grammarCpp = Grammar('Grammaire Java')
 	grammarCpp.add_rule(ChepTagsJava())
+	grammarCpp.add_rule(ChepVariable())
 	return grammarCpp;

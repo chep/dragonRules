@@ -205,7 +205,7 @@ class ChepDeplacements(MappingRule):
 		u'début buffer': Key(u'a-langle'),
 		u'fin buffer': Key(u'a-rangle'),
 
-		u'ligne': Key(u'a-g,a-g'),
+		u'nnuméro de ligne': Key(u'a-g,a-g'),
 
 		u'correspondance': Key(u'a-x') + Text('chep-correspondance') + Key('enter'),
 
