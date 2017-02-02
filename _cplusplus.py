@@ -13,7 +13,6 @@ def creeBlock(type='mauvais type'):
 		u'if': u'if',
 		u'sinon': u'else',
 		u'tant que': u'while',
-		u'temps que': u'while',
 		u'pour': u'for',
 		u'switch': u'switch',
 		u'classe': u'cls',
@@ -23,7 +22,7 @@ def creeBlock(type='mauvais type'):
 	}
 	action = Text(switcher.get(_type, ''))
 	action += Key(u'tab')
-	action.execute()
+	return action
 
 def creeInstruction(type=u'mauvais type'):
 	_type = unicode(type)
@@ -36,7 +35,15 @@ def creeInstruction(type=u'mauvais type'):
 
 class ChepBlocks(MappingRule):
 	mapping = {
-		u'block <type>': Function(creeBlock),
+		u'block if': creeBlock(u'if'),
+		u'block sinon': creeBlock(u'sinon'),
+		u'block tant que': creeBlock(u'tant que'),
+		u'block pour': creeBlock(u'pour'),
+		u'block switch': creeBlock(u'switch'),
+		u'block classe': creeBlock(u'classe'),
+		u'block exception': creeBlock(u'exception'),
+		u'block énumération': creeBlock(u'énumération'),
+		u'block structure': creeBlock(u'structure'),
 		u'instruction <type>': Function(creeInstruction),
 	}
 	extras = [
@@ -53,7 +60,6 @@ class ChepClasses(MappingRule):
 		u'public': Text(u'public:') + Key(u'tab') + Key(u'enter'),
 		u'protégé': Text(u'protected:') + Key(u'tab') + Key(u'enter'),
 	}
-
 
 class ChepType(CompoundRule):
 	spec = u'type <nom>'

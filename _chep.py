@@ -164,7 +164,7 @@ class ChepActions(MappingRule):
 		u'commande': Key(u'a-x'),
 		u'suivant': Key(u'c-s'),
 		u'précédent': Key(u'c-r'),
-		u'cherche': Key(u'c-s'),
+		u'cherche texte': Key(u'c-s'),
 		u'cherche arrière': Key(u'c-r'),
 		u'cherche mot': Key(u'c-w'),
 		u'remplace': Key(u'a-percent'),
@@ -205,7 +205,7 @@ class ChepDeplacements(MappingRule):
 		u'début buffer': Key(u'a-langle'),
 		u'fin buffer': Key(u'a-rangle'),
 
-		u'nnuméro de ligne': Key(u'a-g,a-g'),
+		u'numéro de ligne': Key(u'a-g,a-g'),
 
 		u'correspondance': Key(u'a-x') + Text('chep-correspondance') + Key('enter'),
 
@@ -253,7 +253,7 @@ class ChepDivers(MappingRule):
 		u'musique stop': Key(u'a-x') + Text(u'chep-mpd-stop') + Key('enter'),
 		u'musique pause': Key(u'a-x') + Text(u'chep-mpd-pause') + Key('enter'),
 		u'terminal': Key(u'f12'),
-		u'bonjour irc': Key(u'a-x') + Text(u'chep-erc-bonjour') + Key('enter'),
+		u'bonjour tout le monde': Key(u'a-x') + Text(u'chep-erc-bonjour') + Key('enter'),
 		u'correction auto': Key(u'a-x') + Text(u'flyspell-auto-correct-word') + Key('enter'),
 		u'choix correction': Key(u'a-x') + Text(u'ispell-word') + Key('enter'),
 	}
