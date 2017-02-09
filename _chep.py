@@ -7,8 +7,6 @@ grammar = Grammar(u'Grammaire Chep')
 
 class ChepGeneral(MappingRule):
 	mapping = {
-		u'dis <text>': Text(u'%(text)s'),
-		u'dit <text>': Text(u'%(text)s'),
 		u'demande <text>': Text(u'%(text)s?'),
 		u'nombre <n>': Text(u'%(n)d'),
 		u'camion': Text(u'pouet pouet'),
