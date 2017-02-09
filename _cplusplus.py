@@ -139,6 +139,7 @@ class ChepTagsPlusPlus(MappingRule):
 		u'occurrence': Key(u'c-c,r,slash'),
 		u'complétion': Key(u'c-tab'),
 		u'renomme tag': Key(u'a-x') + Text(u'rtags-rename-symbol') + Key(u'enter'),
+		u'corrige code': Key(u'a-x') + Text(u'rtags-fixit') + Key(u'enter'),
 	}
 
 def grammaireCPlusPlus():
