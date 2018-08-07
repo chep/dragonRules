@@ -38,6 +38,8 @@ class ChepSway(MappingRule):
 		u'Souhait déplace bas': Key(u'shift:down') + Key(u'w-down') + Key(u'shift:up'),
 		u'Souhait ferme fenêtre': Key(u'shift:down') + Key(u'w-q') + Key(u'shift:up'),
 		u'Souhait terminal': Key(u'w-enter'),
+		u'Souhait envoie scratch': Key(u'w-f12'),
+		u'Souhait scratch': Key(u'f12'),
 	}
 	extras = [
 		IntegerRef('n', 0, 1000),
