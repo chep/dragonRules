@@ -49,7 +49,7 @@ class ChepBuffers(MappingRule):
 		u'nouveau bureau': Key(u'c-c,c-d,a'),
 		u'supprime bureau': Key(u'c-c,c-d,d'),
 		u'echange bureau': Key(u'c-c,c-d,s'),
-		u'bureau numéro <n>': Key(u'a-colon') + Text(u'(virtual-desktops-goto ') + Text(u'%(n)d') + Text(u')') + Key(u'enter'),
+		u'bureau <n>': Key(u'a-colon') + Text(u'(virtual-desktops-goto ') + Text(u'%(n)d') + Text(u')') + Key(u'enter'),
 
 		u'split horizontal': Key(u'c-x,3'),
 		u'split vertical': Key(u'c-x,2'),
