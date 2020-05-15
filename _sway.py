@@ -28,6 +28,8 @@ class ChepSway(MappingRule):
 	mapping = {
 		u'Souhait envoie bureau <n>': Key(u'w-%(n)d'),
 		u'Souhait bureau <n>': Function(bureauN),
+		u'Souhait demande bureau': Key(u'w-w'),
+		u'Souhait envoie demande bureau': Key(u'shift:down') + Key(u'w-w') + Key(u'shift:up'),
 		u'Souhait gauche': Key(u'w-left'),
 		u'Souhait droite': Key(u'w-right'),
 		u'Souhait haut': Key(u'w-up'),
