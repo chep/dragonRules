@@ -114,8 +114,8 @@ class ChepDivers(MappingRule):
 
 		u'pointeur nul': Text(u'nullptr'),
 
-		u'envoie': Text(u'>>'),
-		u'reçoit': Text(u'<<'),
+		u'envoie': Text(u' >> '),
+		u'reçoit': Text(u' << '),
 		u'double deux points': Text(u'::'),
 
 		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),

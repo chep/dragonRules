@@ -35,9 +35,15 @@ class ChepImport(MappingRule):
 		u'import from': Text(u'from') + Key(u'tab'),
 		}
 
+class ChepTags(MappingRule):
+	mapping = {
+		u'cherche tag': Key(u'c-c,dot'),
+	}
+
 def grammairePython():
 	grammarPy = Grammar('Grammaire python')
 	grammarPy.add_rule(ChepImport())
 	grammarPy.add_rule(ChepBlocks())
+	grammarPy.add_rule(ChepTags())
 	return grammarPy
 

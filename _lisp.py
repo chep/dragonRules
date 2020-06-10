@@ -11,6 +11,6 @@ class ChepEval(MappingRule):
 		}
 
 def grammaireLisp():
-	grammarLisp = Grammar('Grammaire python')
+	grammarLisp = Grammar('Grammaire lisp')
 	grammarLisp.add_rule(ChepEval())
 	return grammarLisp

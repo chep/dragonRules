@@ -72,7 +72,7 @@ class EmacsActions(MappingRule):
 		u'remplace': Key(u'a-percent'),
 		u'remplace regexp': Key(u'a-x') + Text(u'query-replace-regexp') + Key(u'enter'),
 		u'ouvre url': Key(u'c-enter'),
-		u'recherche google': Key(u'a-x') + Text(u'google-search-x-browser-region') + Key(u'enter'),
+		u'recherche web': Key(u'ws-s'),
 		u'agenda': Key(u'c-c,a,n'),
 		u'calendrier': Key(u'a-x') + Text(u'calendar') + Key(u'enter'),
 		u'speedbar': Key(u'a-x') + Text(u'sr-speedbar-toggle') + Key(u'enter'),
@@ -95,7 +95,7 @@ class EmacsDeplacements(MappingRule):
 		u'page bas': Key(u'pgdown'),
 		u'page haut': Key(u'pgup'),
 
-		u'fin de ligne': Key(u'c-e'),
+		u'fin': Key(u'c-e'),
 		u'début': Key(u'c-a'),
 
 		u'mot droite': Key(u'c-right'),
@@ -113,13 +113,15 @@ class EmacsDeplacements(MappingRule):
 
 		u'fonction suivante':   Key(u'ac-e'),
 		u'fonction précédente':  Key(u'ac-a'),
+
+		u'déplacement': Key(u'cs-j'),
 	}
 
 class EmacsManipulation(MappingRule):
 	mapping = {
 		u'sélection': Key(u'c-space'),
 		u'sélection rectangle': Key(u'c-x,space'),
-
+		u'sélection bloc': Key(u'c-asterisk'),
 		u'copie': Key(u'a-w'),
 		u'coupe': Key(u'c-w'),
 		u'colle': Key(u'c-y'),
@@ -142,7 +144,7 @@ class EmacsManipulation(MappingRule):
 
 class EmacsCurseur(MappingRule):
 	mapping = {
-		u'multiples curseurs lignes' : Key(u'c-c,c-m,c-l'),
+		u'multiples curseurs' : Key(u'c-c,c-m,c-l'),
 		u'multiples curseurs mot' : Key(u'c-c,c-m,c-w'),
 	}
 
@@ -151,6 +153,7 @@ class EmacsTexte(MappingRule):
 		u'capital': Key(u'a-c'),
 		u'minuscule': Key(u'a-l'),
 		u'majuscule': Key(u'a-u'),
+		u'change casse': Key(u'c-c,i'),
 		u'insertion rectangle': Key(u'a-x') + Text(u'string-rectangle') + Key(u'enter'),
 	}
 

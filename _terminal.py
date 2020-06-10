@@ -7,8 +7,8 @@ grammar = Grammar(u'Grammaire terminal')
 
 class ChepTerminal(MappingRule):
 	mapping = {
-		u'terminal suivant': Key(u's-right'),
-		u'terminal précédent': Key(u's-left'),
+		u'terminal suivant': Key(u'cs-right'),
+		u'terminal précédent': Key(u'cs-left'),
 		u'nouveau terminal': Key(u'cs-t'),
 	}
 	extras = [

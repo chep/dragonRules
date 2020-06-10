@@ -43,6 +43,8 @@ class ChepSway(MappingRule):
 		u'Souhait envoie scratch': Key(u'w-f12'),
 		u'Souhait scratch': Key(u'f12'),
 		u'Souhait plein écran': Key(u'w-f'),
+		u'Souhait menu': Key(u'w-d'),
+		u'Souhait redimensionne': Key(u'w-q'),
 	}
 	extras = [
 		IntegerRef('n', 0, 1000),
