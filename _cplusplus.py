@@ -119,6 +119,8 @@ class ChepDivers(MappingRule):
 		u'double deux points': Text(u'::'),
 
 		u'compile': Key(u'a-x') + Text(u'compile') + Key(u'enter'),
+
+                u'commente': Key(u'c-c,c-c'),
 	}
 
 

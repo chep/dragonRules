@@ -18,6 +18,7 @@ class ChepGeneral(MappingRule):
 		u'loque écran': Key(u'ca-l'),
 		u'control c\'est': Key(u'c-c'),
 		u'control air': Key(u'c-r'),
+		u'control elle': Key(u'c-l'),
 		u'tilde': Key(u'tilde'),
 		u'alt air': Key(u'a-r'),
 		u'alt': Key(u'alt:down'),
